@@ -1,21 +1,27 @@
 pipeline {
     agent any
-tools {
-    maven 'Apache Maven 3.6.3'
-    jdk 'JDK 11'     
-}
-environment {
-    JAVA_HOME = tool name: 'JDK 11', type: 'jdk'
-    PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
-}
 
-   
+    tools {
+        maven 'Apache Maven 3.6.3' // must match Jenkins Global Tool name
+        jdk 'JDK 11'               // must match Jenkins Global Tool name
+    }
+
+    environment {
+        JAVA_HOME = tool(name: 'JDK 11', type: 'jdk')
+        PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+    }
 
     stages {
+        stage('Print Environment Info') {
+            steps {
+                sh 'java -version'
+                sh 'mvn -version'
+            }
+        }
+
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
-
             }
         }
 
