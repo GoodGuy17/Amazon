@@ -4,6 +4,10 @@ tools {
     maven 'Apache Maven 3.6.3'
     jdk 'JDK 11'     
 }
+environment {
+    JAVA_HOME = tool name: 'JDK 11', type: 'jdk'
+    PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+}
 
    
 
