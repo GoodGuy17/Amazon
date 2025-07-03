@@ -10,7 +10,7 @@ tools {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
+                git branch: 'master', url: 'https://github.com/GoodGuy17/Amazon/tree/master/Amazon'
 
             }
         }
