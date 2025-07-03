@@ -10,7 +10,7 @@ tools {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/GoodGuy17/Amazon/tree/master/Amazon'
+                git branch: 'master', url: 'https://github.com/GoodGuy17/Amazon'
 
             }
         }
